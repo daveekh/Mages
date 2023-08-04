@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private EnemyStats enemyStats;
+
     public enum TURN { 
-        START, PLAYER, ENEMY, END
+        START, PLAYER, ENEMY, END, VICTORY, DEFEAT, ERR
     }
 
     private TURN turn;
@@ -17,24 +20,50 @@ public class GameManager : MonoBehaviour {
         else return "End";
     }
 
+    public void SetTurnTo(string turn) {
 
+        switch(turn) {
+            case "START": { this.turn = TURN.START; break; }
 
+            case "PLAYER": { 
 
+                if(playerStats.GetHP() <= 0) {
+                    this.turn = TURN.END; 
+                }
+                else {
+                    this.turn = TURN.PLAYER; 
+                    playerStats.RegenStats();
+                }
+                break;
+            }
 
+            case "ENEMY": { 
 
+                if(enemyStats.GetHP() <= 0) {
+                    this.turn = TURN.END;
+                }
+                else {
+                    this.turn = TURN.ENEMY; 
+                    enemyStats.RegenStats();
+                }
+                break;
+            }
 
+            case "END": { this.turn = TURN.END; break; }
+            default: { this.turn = TURN.ERR; break; }
+        }
+
+    }
+
+    public void DealDamageTo() {
+        
+    }
 
     void Start() {
         turn = TURN.START;
     }
 
-    void Update() {
-        
-
-
-    }
-
-    public void setTurn(TURN turn) { this.turn = turn; }
-    public TURN getTurn() { return turn; }
+    public void SetTurn(TURN turn) { this.turn = turn; }
+    public TURN GetTurn() { return turn; }
 
 }
