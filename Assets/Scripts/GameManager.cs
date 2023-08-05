@@ -55,8 +55,13 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    public void DealDamageTo() {
-        
+    public void DealDamageTo(int value, string name) {
+        if(name == "PLAYER") {
+            playerStats.SetHP(playerStats.GetHP() - value);
+        }
+        else if(name == "ENEMY") {
+            enemyStats.SetHP(enemyStats.GetHP() - value);   
+        }
     }
 
     void Start() {

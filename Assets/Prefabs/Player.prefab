@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1420212495095308576}
   - component: {fileID: 9199605355613378589}
   - component: {fileID: 1605322228270466166}
+  - component: {fileID: 333488156116324627}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -48,7 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  enemy: {fileID: 0}
   playerMovement: {fileID: 1605322228270466166}
+  playerSpells: {fileID: 333488156116324627}
 --- !u!114 &9199605355613378589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a683bd235a1aea74197fac11ab4dda68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 40
+  hp: 100
   maxHp: 100
   mana: 200
   maxMana: 200
@@ -79,6 +82,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e104d7c9520efb749b38a7e3c3c0ceda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &333488156116324627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268978516950768897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb708342194d8a4b995c33421128660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  testSpell1Dmg: 30
+  testSpell1Range: 8
+  testSpell1Missile: {fileID: 6197075368952428226, guid: 4fe8fe81e3b16744d8882bfb5a856b2f, type: 3}
 --- !u!1 &6137419486526076564
 GameObject:
   m_ObjectHideFlags: 0

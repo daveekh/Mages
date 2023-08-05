@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour {
 
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject enemy;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerSpells playerSpells;
  
     void Update() {
 
@@ -37,9 +39,19 @@ public class PlayerAction : MonoBehaviour {
             // spell action - 1 2 3 4
             else if (Input.GetKeyDown(KeyCode.Alpha1)) {
 
+                if(
+                    Mathf.Abs(enemy.transform.position.x - transform.position.x) <= playerSpells.GetTestSpell1Range() &&
+                    Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetTestSpell1Range()
+                ) {
+                    
+                    
+                    playerSpells.TestSpell1();
+                    gameManager.DealDamageTo(playerSpells.GetTestSpell1Dmg(), "ENEMY");
+                    gameManager.SetTurnTo("ENEMY");
 
-
-                gameManager.SetTurnTo("ENEMY");
+                } else {
+                    Debug.Log("You're too far!");
+                }
             }
 
             else if (Input.GetKeyDown(KeyCode.Alpha2)) {

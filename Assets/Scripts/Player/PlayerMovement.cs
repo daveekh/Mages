@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-
     // https://www.youtube.com/watch?v=AiZ4z4qKy44
 
     public void MoveUp() {
