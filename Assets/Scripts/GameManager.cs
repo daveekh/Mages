@@ -64,6 +64,15 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void DeduceMana(int value, string name) {
+        if(name == "PLAYER") {
+            playerStats.SetMana(playerStats.GetHP() - value);
+        }
+        else if(name == "ENEMY") {
+            enemyStats.SetMana(enemyStats.GetHP() - value);   
+        }
+    }
+
     void Start() {
         turn = TURN.START;
     }
