@@ -8,10 +8,9 @@ public class UIManager : MonoBehaviour {
 
     // references
     [SerializeField] private GameManager gameManager;
-    // [SerializeField] private GameObject player;
-    // [SerializeField] private GameObject enemy;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private EnemyAI enemyAI;
 
 
     // right panel
@@ -20,6 +19,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI playerManaValue;
     [SerializeField] private TextMeshProUGUI enemyHPValue;
     [SerializeField] private TextMeshProUGUI enemyManaValue;
+    [SerializeField] private TextMeshProUGUI enemyStateValue;
 
     public void StartButton () {
         gameManager.SetTurnTo("PLAYER");
@@ -53,6 +53,7 @@ public class UIManager : MonoBehaviour {
         playerManaValue.text = playerStats.GetMana().ToString();
         enemyHPValue.text = enemyStats.GetHP().ToString();
         enemyManaValue.text = enemyStats.GetMana().ToString();
+        enemyStateValue.text = enemyAI.ConvertStateToText(enemyAI.GetState());
     }
 
 

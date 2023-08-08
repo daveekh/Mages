@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private EnemyStats enemyStats;
 
+    [HideInInspector]
     public enum TURN { 
-        START, PLAYER, ENEMY, END, VICTORY, DEFEAT, ERR
+        START, PLAYER, ENEMY, END, VICTORY, DEFEAT
     }
 
     private TURN turn;
@@ -50,7 +51,6 @@ public class GameManager : MonoBehaviour {
             }
 
             case "END": { this.turn = TURN.END; break; }
-            default: { this.turn = TURN.ERR; break; }
         }
 
     }
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void DeduceMana(int value, string name) {
+    public void SubtractMana(int value, string name) {
         if(name == "PLAYER") {
             playerStats.SetMana(playerStats.GetHP() - value);
         }
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour {
         turn = TURN.START;
     }
 
-    public void SetTurn(TURN turn) { this.turn = turn; }
+    //public void SetTurn(TURN turn) { this.turn = turn; }
     public TURN GetTurn() { return turn; }
 
 }

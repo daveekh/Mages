@@ -49,7 +49,7 @@ public class PlayerAction : MonoBehaviour {
                     // wait 2 seconds
                     randomDmg = Random.Range(playerSpells.GetFireballDmgMin(), playerSpells.GetFireballDmgMax()+1);
                     gameManager.DealDamageTo(randomDmg, "ENEMY");
-                    gameManager.DeduceMana(playerSpells.GetFireballManaCost(), "PLAYER");
+                    gameManager.SubtractMana(playerSpells.GetFireballManaCost(), "PLAYER");
                     gameManager.SetTurnTo("ENEMY");
                     Debug.Log("Fireball! Dmg: " + randomDmg);
                 } else {
@@ -68,7 +68,7 @@ public class PlayerAction : MonoBehaviour {
                     // wait 2 seconds
                     randomDmg = Random.Range(playerSpells.GetFrostboltDmgMin(), playerSpells.GetFrostboltDmgMax()+1);
                     gameManager.DealDamageTo(randomDmg, "ENEMY");
-                    gameManager.DeduceMana(playerSpells.GetFrostboltManaCost(), "PLAYER");
+                    gameManager.SubtractMana(playerSpells.GetFrostboltManaCost(), "PLAYER");
                     gameManager.SetTurnTo("ENEMY");
                     Debug.Log("Frostbolt! Dmg: " + randomDmg);
                 } else {
@@ -87,7 +87,7 @@ public class PlayerAction : MonoBehaviour {
                     // wait 2 seconds
                     randomDmg = Random.Range(playerSpells.GetLightningBoltDmgMin(), playerSpells.GetLightningBoltDmgMax()+1);
                     gameManager.DealDamageTo(randomDmg, "ENEMY");
-                    gameManager.DeduceMana(playerSpells.GetLightningBoltManaCost(), "PLAYER");
+                    gameManager.SubtractMana(playerSpells.GetLightningBoltManaCost(), "PLAYER");
                     gameManager.SetTurnTo("ENEMY");
                     Debug.Log("Lightning Bolt! Dmg: " + randomDmg);
                 } else {
@@ -106,7 +106,7 @@ public class PlayerAction : MonoBehaviour {
                     // wait 2 seconds
                     randomDmg = Random.Range(playerSpells.GetMagicStaffHitDmgMin(), playerSpells.GetMagicStaffHitDmgMax()+1);
                     gameManager.DealDamageTo(randomDmg, "ENEMY");
-                    gameManager.DeduceMana(playerSpells.GetMagicStaffHitManaCost(), "PLAYER");
+                    gameManager.SubtractMana(playerSpells.GetMagicStaffHitManaCost(), "PLAYER");
                     gameManager.SetTurnTo("ENEMY");
                     Debug.Log("Magic Staff Hit! Dmg: " + randomDmg);
                 } else {
