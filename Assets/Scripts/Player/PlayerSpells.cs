@@ -6,24 +6,24 @@ public class PlayerSpells : MonoBehaviour {
 
     [SerializeField] private GameObject enemy;
     [Header("Fireball")]
-    [SerializeField] private int fireballDmgMin = 30;
-    [SerializeField] private int fireballDmgMax = 40;
+    [SerializeField] private int fireballDmgMin = 20;
+    [SerializeField] private int fireballDmgMax = 30;
     [SerializeField] private int fireballRange = 5;
     [SerializeField] private int fireballManaCost = 60;
     [SerializeField] private GameObject fireballMissile;
     //animacja fireballa
     [Header("Frostbolt")]
-    [SerializeField] private int frostboltDmgMin = 20;
-    [SerializeField] private int frostboltDmgMax = 25;
+    [SerializeField] private int frostboltDmgMin = 15;
+    [SerializeField] private int frostboltDmgMax = 20;
     [SerializeField] private int frostboltRange = 3;
-    [SerializeField] private int frostboltManaCost = 35;
+    [SerializeField] private int frostboltManaCost = 40;
     [SerializeField] private GameObject frostboltMissile;
     // animacja frostbolta
     [Header("Lightning Bolt")]
-    [SerializeField] private int lightningBoltDmgMin = 20;
-    [SerializeField] private int lightningBoltDmgMax = 50;
-    [SerializeField] private int lightningBoltRange = 8;
-    [SerializeField] private int lightningBoltManaCost = 55;
+    [SerializeField] private int lightningBoltDmgMin = 10;
+    [SerializeField] private int lightningBoltDmgMax = 35;
+    [SerializeField] private int lightningBoltRange = 6;
+    [SerializeField] private int lightningBoltManaCost = 50;
     // animacja lightning bolta
     [Header("Magic Staff Hit")]
     [SerializeField] private int magicStaffHitDmgMin = 5;

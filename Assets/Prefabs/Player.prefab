@@ -97,20 +97,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  fireballDmgMin: 30
-  fireballDmgMax: 40
+  fireballDmgMin: 20
+  fireballDmgMax: 30
   fireballRange: 5
   fireballManaCost: 60
   fireballMissile: {fileID: 6197075368952428226, guid: 359757b0405a4444f805db2096e73f5d, type: 3}
-  frostboltDmgMin: 20
-  frostboltDmgMax: 25
+  frostboltDmgMin: 15
+  frostboltDmgMax: 20
   frostboltRange: 3
-  frostboltManaCost: 35
+  frostboltManaCost: 40
   frostboltMissile: {fileID: 6197075368952428226, guid: 96896582500bb55499af1e7fc628327e, type: 3}
-  lightningBoltDmgMin: 20
-  lightningBoltDmgMax: 50
-  lightningBoltRange: 8
-  lightningBoltManaCost: 55
+  lightningBoltDmgMin: 10
+  lightningBoltDmgMax: 35
+  lightningBoltRange: 6
+  lightningBoltManaCost: 50
   magicStaffHitDmgMin: 5
   magicStaffHitDmgMax: 10
   magicStaffHitRange: 1

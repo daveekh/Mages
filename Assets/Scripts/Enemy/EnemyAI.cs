@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private EnemyMovement enemyMovement;
+    [SerializeField] private EnemyFuzzyLogic enemyFuzzyLogic;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private GameObject player;
     private int randomDirection;
@@ -29,10 +30,11 @@ public class EnemyAI : MonoBehaviour {
 
         if (state == STATE.PATROL) {
 
-            if (Mathf.Abs(transform.position.x - player.transform.position.x) <= 8 &&
-                Mathf.Abs(transform.position.y - player.transform.position.y) <= 8) {
+            if (Mathf.Abs(transform.position.x - player.transform.position.x) <= 6 &&
+                Mathf.Abs(transform.position.y - player.transform.position.y) <= 6) {
 
                     state = STATE.ACTION;
+
             }
 
         }
