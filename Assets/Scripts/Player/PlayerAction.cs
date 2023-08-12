@@ -8,6 +8,7 @@ public class PlayerAction : MonoBehaviour {
     [SerializeField] private GameObject enemy;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private PlayerSpells playerSpells;
+    [SerializeField] private PlayerStats playerStats;
     private int randomDmg;
  
     void Update() {
@@ -40,58 +41,70 @@ public class PlayerAction : MonoBehaviour {
             // spell action - 1 2 3 4
             else if (Input.GetKeyDown(KeyCode.Alpha1)) {
 
-                // Fireball
-                if(
-                    Mathf.Abs(enemy.transform.position.x - transform.position.x) <= playerSpells.GetFireballRange() &&
-                    Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetFireballRange()
-                ) {
-                    playerSpells.Fireball();
-                    // wait 2 seconds
-                    randomDmg = Random.Range(playerSpells.GetFireballDmgMin(), playerSpells.GetFireballDmgMax()+1);
-                    gameManager.DealDamageTo(randomDmg, "ENEMY");
-                    gameManager.SubtractMana(playerSpells.GetFireballManaCost(), "PLAYER");
-                    gameManager.SetTurnTo("ENEMY");
-                    Debug.Log("Fireball! Dmg: " + randomDmg);
+                if(playerStats.GetMana() >= playerSpells.GetFireballManaCost()) {
+                    // Fireball
+                    if(
+                        Mathf.Abs(enemy.transform.position.x - transform.position.x) <= playerSpells.GetFireballRange() &&
+                        Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetFireballRange()
+                    ) {
+                        playerSpells.Fireball();
+                        // wait 1 seconds
+                        randomDmg = Random.Range(playerSpells.GetFireballDmgMin(), playerSpells.GetFireballDmgMax()+1);
+                        gameManager.DealDamageTo(randomDmg, "ENEMY");
+                        gameManager.SubtractMana(playerSpells.GetFireballManaCost(), "PLAYER");
+                        gameManager.SetTurnTo("ENEMY");
+                        Debug.Log("Player Fireball! Dmg: " + randomDmg);
+                    } else {
+                        Debug.Log("You're too far!");
+                    }
                 } else {
-                    Debug.Log("You're too far!");
+                    Debug.Log("You don't have mana!");
                 }
             }
 
             else if (Input.GetKeyDown(KeyCode.Alpha2)) {
 
-                // Frostbolt
-                if(
-                    Mathf.Abs(enemy.transform.position.x - transform.position.x) <= playerSpells.GetFrostboltRange() &&
-                    Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetFrostboltRange()
-                ) {
-                    playerSpells.Frostbolt();
-                    // wait 2 seconds
-                    randomDmg = Random.Range(playerSpells.GetFrostboltDmgMin(), playerSpells.GetFrostboltDmgMax()+1);
-                    gameManager.DealDamageTo(randomDmg, "ENEMY");
-                    gameManager.SubtractMana(playerSpells.GetFrostboltManaCost(), "PLAYER");
-                    gameManager.SetTurnTo("ENEMY");
-                    Debug.Log("Frostbolt! Dmg: " + randomDmg);
+                if(playerStats.GetMana() >= playerSpells.GetFrostboltManaCost()) {
+                    // Frostbolt
+                    if(
+                        Mathf.Abs(enemy.transform.position.x - transform.position.x) <= playerSpells.GetFrostboltRange() &&
+                        Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetFrostboltRange()
+                    ) {
+                        playerSpells.Frostbolt();
+                        // wait 1 second
+                        randomDmg = Random.Range(playerSpells.GetFrostboltDmgMin(), playerSpells.GetFrostboltDmgMax()+1);
+                        gameManager.DealDamageTo(randomDmg, "ENEMY");
+                        gameManager.SubtractMana(playerSpells.GetFrostboltManaCost(), "PLAYER");
+                        gameManager.SetTurnTo("ENEMY");
+                        Debug.Log("Player Frostbolt! Dmg: " + randomDmg);
+                    } else {
+                        Debug.Log("You're too far!");
+                    }
                 } else {
-                    Debug.Log("You're too far!");
+                    Debug.Log("You don't have mana!");
                 }
             }
 
             else if (Input.GetKeyDown(KeyCode.Alpha3)) {
 
-                // Lighting Bolt
-                if(
-                    Mathf.Abs(enemy.transform.position.x - transform.position.x) <= playerSpells.GetLightningBoltRange() &&
-                    Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetLightningBoltRange()
-                ) {
-                    playerSpells.LightningBolt();
-                    // wait 2 seconds
-                    randomDmg = Random.Range(playerSpells.GetLightningBoltDmgMin(), playerSpells.GetLightningBoltDmgMax()+1);
-                    gameManager.DealDamageTo(randomDmg, "ENEMY");
-                    gameManager.SubtractMana(playerSpells.GetLightningBoltManaCost(), "PLAYER");
-                    gameManager.SetTurnTo("ENEMY");
-                    Debug.Log("Lightning Bolt! Dmg: " + randomDmg);
+                if(playerStats.GetMana() >= playerSpells.GetLightningBoltManaCost()) {
+                    // Lighting Bolt
+                    if(
+                        Mathf.Abs(enemy.transform.position.x - transform.position.x) <= playerSpells.GetLightningBoltRange() &&
+                        Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetLightningBoltRange()
+                    ) {
+                        playerSpells.LightningBolt();
+                        // wait 2 second
+                        randomDmg = Random.Range(playerSpells.GetLightningBoltDmgMin(), playerSpells.GetLightningBoltDmgMax()+1);
+                        gameManager.DealDamageTo(randomDmg, "ENEMY");
+                        gameManager.SubtractMana(playerSpells.GetLightningBoltManaCost(), "PLAYER");
+                        gameManager.SetTurnTo("ENEMY");
+                        Debug.Log("Player Lightning Bolt! Dmg: " + randomDmg);
+                    } else {
+                        Debug.Log("You're too far!");
+                    }
                 } else {
-                    Debug.Log("You're too far!");
+                    Debug.Log("You don't have mana!");
                 }
             }
 
@@ -103,12 +116,12 @@ public class PlayerAction : MonoBehaviour {
                     Mathf.Abs(enemy.transform.position.y - transform.position.y) <= playerSpells.GetMagicStaffHitRange()
                 ) {
                     playerSpells.MagicStaffHit();
-                    // wait 2 seconds
+                    // wait 1 seconds
                     randomDmg = Random.Range(playerSpells.GetMagicStaffHitDmgMin(), playerSpells.GetMagicStaffHitDmgMax()+1);
                     gameManager.DealDamageTo(randomDmg, "ENEMY");
                     gameManager.SubtractMana(playerSpells.GetMagicStaffHitManaCost(), "PLAYER");
                     gameManager.SetTurnTo("ENEMY");
-                    Debug.Log("Magic Staff Hit! Dmg: " + randomDmg);
+                    Debug.Log("Player Magic Staff Hit! Dmg: " + randomDmg);
                 } else {
                     Debug.Log("You're too far!");
                 }

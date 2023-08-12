@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpells : MonoBehaviour {
+public class EnemySpells : MonoBehaviour {
 
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject player;
     [Header("Fireball")]
     [SerializeField] private int fireballDmgMin = 20;
     [SerializeField] private int fireballDmgMax = 30;
@@ -31,7 +31,7 @@ public class PlayerSpells : MonoBehaviour {
     [SerializeField] private int magicStaffHitRange = 1;
     [SerializeField] private int magicStaffHitManaCost = 0;
     // animacja magic staffa
-    
+
     private GameObject missile;
     private float x, y;
     private Quaternion rotation;
@@ -39,35 +39,35 @@ public class PlayerSpells : MonoBehaviour {
 
     public void Fireball() {
 
-        x = Mathf.Abs(enemy.transform.position.x - transform.position.x);
-        y = Mathf.Abs(enemy.transform.position.y - transform.position.y);
+        x = Mathf.Abs(transform.position.x - player.transform.position.x);
+        y = Mathf.Abs(transform.position.y - player.transform.position.y);
 
-        if( (transform.position.x > enemy.transform.position.x && transform.position.y < enemy.transform.position.y) ||
-            (transform.position.x < enemy.transform.position.x && transform.position.y > enemy.transform.position.y) ) {
+        if( (transform.position.x > player.transform.position.x && transform.position.y < player.transform.position.y) ||
+            (transform.position.x < player.transform.position.x && transform.position.y > player.transform.position.y) ) {
             
             rotation = Quaternion.Euler(0, 0, Mathf.Atan2(x, y) * Mathf.Rad2Deg);
         } else {
             rotation = Quaternion.Euler(0, 0, -Mathf.Atan2(x, y) * Mathf.Rad2Deg);
         }
 
-        StartCoroutine(Move(fireballMissile, rotation, enemy.transform.position));
+        StartCoroutine(Move(fireballMissile, rotation, player.transform.position));
         // animacja wybuchu
     }
 
     public void Frostbolt() {
 
-        x = Mathf.Abs(enemy.transform.position.x - transform.position.x);
-        y = Mathf.Abs(enemy.transform.position.y - transform.position.y);
+        x = Mathf.Abs(transform.position.x - player.transform.position.x);
+        y = Mathf.Abs(transform.position.y - player.transform.position.y);
 
-        if( (transform.position.x > enemy.transform.position.x && transform.position.y < enemy.transform.position.y) ||
-            (transform.position.x < enemy.transform.position.x && transform.position.y > enemy.transform.position.y) ) {
+        if( (transform.position.x > player.transform.position.x && transform.position.y < player.transform.position.y) ||
+            (transform.position.x < player.transform.position.x && transform.position.y > player.transform.position.y) ) {
             
             rotation = Quaternion.Euler(0, 0, Mathf.Atan2(x, y) * Mathf.Rad2Deg);
         } else {
             rotation = Quaternion.Euler(0, 0, -Mathf.Atan2(x, y) * Mathf.Rad2Deg);
         }
 
-        StartCoroutine(Move(frostboltMissile, rotation, enemy.transform.position));
+        StartCoroutine(Move(frostboltMissile, rotation, player.transform.position));
         // animacja wybuchu
     }
 
@@ -116,6 +116,7 @@ public class PlayerSpells : MonoBehaviour {
     public int GetMagicStaffHitDmgMax() { return magicStaffHitDmgMax; }
     public int GetMagicStaffHitRange() { return magicStaffHitRange; }
     public int GetMagicStaffHitManaCost() { return magicStaffHitManaCost; }
+
 
 
 

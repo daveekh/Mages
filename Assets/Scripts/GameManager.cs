@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
             case "PLAYER": { 
 
                 if(playerStats.GetHP() <= 0) {
+                    playerStats.SetHP(0);
                     this.turn = TURN.END; 
                 }
                 else {
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour {
             case "ENEMY": { 
 
                 if(enemyStats.GetHP() <= 0) {
+                    enemyStats.SetHP(0);
                     this.turn = TURN.END;
                 }
                 else {
@@ -66,10 +68,15 @@ public class GameManager : MonoBehaviour {
 
     public void SubtractMana(int value, string name) {
         if(name == "PLAYER") {
-            playerStats.SetMana(playerStats.GetHP() - value);
+            playerStats.SetMana(playerStats.GetMana() - value);
+
+            if(playerStats.GetMana() < 0) playerStats.SetMana(0);
+
         }
         else if(name == "ENEMY") {
-            enemyStats.SetMana(enemyStats.GetHP() - value);   
+            enemyStats.SetMana(enemyStats.GetMana() - value);   
+
+            if(enemyStats.GetMana() < 0) enemyStats.SetMana(0);
         }
     }
 
