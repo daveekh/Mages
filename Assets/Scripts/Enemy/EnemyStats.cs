@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour {
 
+    [SerializeField] private UIManager uiManager;
     [SerializeField] private int hp = 100;
     [SerializeField] private int maxHp = 100;
     [SerializeField] private int mana = 200;
@@ -23,6 +24,9 @@ public class EnemyStats : MonoBehaviour {
 
         if(hp > maxHp) hp = maxHp;
         if(mana > maxMana) mana = maxMana;
+
+        uiManager.SetValueToSlider(hp, "ENEMYHP");
+        uiManager.SetValueToSlider(mana, "ENEMYMANA");
     }
 
 }
