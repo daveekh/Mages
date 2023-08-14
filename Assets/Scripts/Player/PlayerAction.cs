@@ -18,21 +18,25 @@ public class PlayerAction : MonoBehaviour {
             // movement action - W S A D / Up Down Left Right
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
                 playerMovement.MoveUp();
+                gameManager.AddLogToConsole("Gracz poruszył się do góry");
                 gameManager.SetTurnTo("ENEMY");
             }
 
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) {
                 playerMovement.MoveDown();
+                gameManager.AddLogToConsole("Gracz poruszył się do dołu");
                 gameManager.SetTurnTo("ENEMY");
             }
 
             else  if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
                 playerMovement.MoveLeft();
+                gameManager.AddLogToConsole("Gracz poruszył się w lewo");
                 gameManager.SetTurnTo("ENEMY");
             }
 
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
                 playerMovement.MoveRight();
+                gameManager.AddLogToConsole("Gracz poruszył się w prawo");
                 gameManager.SetTurnTo("ENEMY");
             }
 
@@ -52,13 +56,14 @@ public class PlayerAction : MonoBehaviour {
                         randomDmg = Random.Range(playerSpells.GetFireballDmgMin(), playerSpells.GetFireballDmgMax()+1);
                         gameManager.DealDamageTo(randomDmg, "ENEMY");
                         gameManager.SubtractMana(playerSpells.GetFireballManaCost(), "PLAYER");
+                        gameManager.AddLogToConsole("Gracz zaatakował kulą ognia zadając " + randomDmg + " obrażeń");
                         gameManager.SetTurnTo("ENEMY");
-                        Debug.Log("Player Fireball! Dmg: " + randomDmg);
+                        //Debug.Log("Player Fireball! Dmg: " + randomDmg);
                     } else {
-                        Debug.Log("You're too far!");
+                        //Debug.Log("You're too far!");
                     }
                 } else {
-                    Debug.Log("You don't have mana!");
+                    //Debug.Log("You don't have mana!");
                 }
             }
 
@@ -75,13 +80,14 @@ public class PlayerAction : MonoBehaviour {
                         randomDmg = Random.Range(playerSpells.GetFrostboltDmgMin(), playerSpells.GetFrostboltDmgMax()+1);
                         gameManager.DealDamageTo(randomDmg, "ENEMY");
                         gameManager.SubtractMana(playerSpells.GetFrostboltManaCost(), "PLAYER");
+                        gameManager.AddLogToConsole("Gracz zaatakował pociskiem lodu zadając " + randomDmg + " obrażeń");
                         gameManager.SetTurnTo("ENEMY");
-                        Debug.Log("Player Frostbolt! Dmg: " + randomDmg);
+                        //Debug.Log("Player Frostbolt! Dmg: " + randomDmg);
                     } else {
-                        Debug.Log("You're too far!");
+                        //Debug.Log("You're too far!");
                     }
                 } else {
-                    Debug.Log("You don't have mana!");
+                    //Debug.Log("You don't have mana!");
                 }
             }
 
@@ -98,13 +104,14 @@ public class PlayerAction : MonoBehaviour {
                         randomDmg = Random.Range(playerSpells.GetLightningBoltDmgMin(), playerSpells.GetLightningBoltDmgMax()+1);
                         gameManager.DealDamageTo(randomDmg, "ENEMY");
                         gameManager.SubtractMana(playerSpells.GetLightningBoltManaCost(), "PLAYER");
+                        gameManager.AddLogToConsole("Gracz zaatakował błyskawicą zadając " + randomDmg + " obrażeń");
                         gameManager.SetTurnTo("ENEMY");
-                        Debug.Log("Player Lightning Bolt! Dmg: " + randomDmg);
+                        //Debug.Log("Player Lightning Bolt! Dmg: " + randomDmg);
                     } else {
-                        Debug.Log("You're too far!");
+                        //Debug.Log("You're too far!");
                     }
                 } else {
-                    Debug.Log("You don't have mana!");
+                    //Debug.Log("You don't have mana!");
                 }
             }
 
@@ -120,10 +127,11 @@ public class PlayerAction : MonoBehaviour {
                     randomDmg = Random.Range(playerSpells.GetMagicStaffHitDmgMin(), playerSpells.GetMagicStaffHitDmgMax()+1);
                     gameManager.DealDamageTo(randomDmg, "ENEMY");
                     gameManager.SubtractMana(playerSpells.GetMagicStaffHitManaCost(), "PLAYER");
+                    gameManager.AddLogToConsole("Gracz zaatakował magicznym kijem zadając " + randomDmg + " obrażeń");
                     gameManager.SetTurnTo("ENEMY");
-                    Debug.Log("Player Magic Staff Hit! Dmg: " + randomDmg);
+                    //Debug.Log("Player Magic Staff Hit! Dmg: " + randomDmg);
                 } else {
-                    Debug.Log("You're too far!");
+                    //Debug.Log("You're too far!");
                 }
             }
         }

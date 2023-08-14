@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour {
         else return "Koniec";
     }
 
+    public void AddLogToConsole(string log) {
+        uiManager.AddLogToConsole(log);
+    }
+
     public void SetTurnTo(string turn) {
 
         switch(turn) {

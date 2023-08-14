@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class UIManager : MonoBehaviour {
 
@@ -24,6 +25,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI enemyManaValue;
     [SerializeField] private Slider enemyManaSlider;
     [SerializeField] private TextMeshProUGUI enemyStateValue;
+    [SerializeField] private TextMeshProUGUI consoleArrayValue;
+    public List<string> consoleArray;
+    public string consoleLog;
 
 
     public void SetValueToSlider(int value, string agent) {
@@ -36,8 +40,16 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void AddLogToConsole(string log) {
+        consoleArray.Add(log);
+    
+        consoleLog = "";
 
-
+        foreach(string x in consoleArray) {
+            consoleLog += x;
+            consoleLog += "\n";
+        }
+    }
 
 
     public void StartButton () {
@@ -73,6 +85,7 @@ public class UIManager : MonoBehaviour {
         enemyHPValue.text = enemyStats.GetHP().ToString();
         enemyManaValue.text = enemyStats.GetMana().ToString();
         enemyStateValue.text = enemyAI.ConvertStateToText(enemyAI.GetState());
+        consoleArrayValue.text = consoleLog.ToString();
     }
 
 
