@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private IEnumerator Move(Vector3 dir) {
         float elapsedTime = 0;
-        float timeToMove = 0.3f;
+        float timeToMove = 0.8f;
         Vector3 origPos = transform.position;
         Vector3 targetPos = transform.position + dir;
 

@@ -161,7 +161,7 @@ public class EnemyAI : MonoBehaviour {
 
         timer += Time.deltaTime;
 
-        if (timer > 3) {
+        if (timer > 2) {
             randomDirection = Random.Range(0, 4);
 
             switch(randomDirection) {
@@ -196,7 +196,7 @@ public class EnemyAI : MonoBehaviour {
 
         timer += Time.deltaTime;
 
-        if (timer > 3)  {
+        if (timer > 2)  {
 
             spell = enemyFuzzyLogic.EvaluateSpell(enemyStats.GetMana(), playerStats.GetHP());
 
