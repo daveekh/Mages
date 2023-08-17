@@ -10,8 +10,16 @@ public class UIManager : MonoBehaviour {
     // references
     [SerializeField] private GameManager gameManager;
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private PlayerAction playerAction;
+    [SerializeField] private PlayerSpells playerSpells;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private EnemyAI enemyAI;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Button fireballButton;
+    [SerializeField] private Button frostboltButton;
+    [SerializeField] private Button lightningBoltButton;
+    [SerializeField] private Button magicStaffHitButton;
 
 
     // right panel
@@ -74,6 +82,56 @@ public class UIManager : MonoBehaviour {
 
 
     // bottom panel
+    public void SetActiveButtons() {
+
+        //Fireball
+        if(
+            playerStats.GetMana() >= playerSpells.GetFireballManaCost() && 
+            Mathf.Abs(enemy.transform.position.x - player.transform.position.x) <= playerSpells.GetFireballRange() &&
+            Mathf.Abs(enemy.transform.position.y - player.transform.position.y) <= playerSpells.GetFireballRange()
+            ) { 
+                fireballButton.interactable = true;
+
+            } else {
+                fireballButton.interactable = false;
+            }
+
+        //Frostbolt
+        if(
+            playerStats.GetMana() >= playerSpells.GetFrostboltManaCost() && 
+            Mathf.Abs(enemy.transform.position.x - player.transform.position.x) <= playerSpells.GetFrostboltRange() &&
+            Mathf.Abs(enemy.transform.position.y - player.transform.position.y) <= playerSpells.GetFrostboltRange()
+            ) { 
+                frostboltButton.interactable = true;
+
+            } else {
+                frostboltButton.interactable = false;
+            }
+
+        //Lightning Bolt
+        if(
+            playerStats.GetMana() >= playerSpells.GetLightningBoltManaCost() && 
+            Mathf.Abs(enemy.transform.position.x - player.transform.position.x) <= playerSpells.GetLightningBoltRange() &&
+            Mathf.Abs(enemy.transform.position.y - player.transform.position.y) <= playerSpells.GetLightningBoltRange()
+            ) { 
+                lightningBoltButton.interactable = true;
+
+            } else {
+                lightningBoltButton.interactable = false;
+            }
+
+        //Magic Staff Hit
+        if(
+            playerStats.GetMana() >= playerSpells.GetMagicStaffHitManaCost() && 
+            Mathf.Abs(enemy.transform.position.x - player.transform.position.x) <= playerSpells.GetMagicStaffHitRange() &&
+            Mathf.Abs(enemy.transform.position.y - player.transform.position.y) <= playerSpells.GetMagicStaffHitRange()
+            ) { 
+                magicStaffHitButton.interactable = true;
+
+            } else {
+                magicStaffHitButton.interactable = false;
+            }
+    }
 
 
 
@@ -86,6 +144,7 @@ public class UIManager : MonoBehaviour {
         enemyManaValue.text = enemyStats.GetMana().ToString();
         enemyStateValue.text = enemyAI.ConvertStateToText(enemyAI.GetState());
         consoleArrayValue.text = consoleLog.ToString();
+        SetActiveButtons();
     }
 
 
