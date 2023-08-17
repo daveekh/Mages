@@ -42,11 +42,16 @@ public class EnemySpells : MonoBehaviour {
         x = Mathf.Abs(transform.position.x - player.transform.position.x);
         y = Mathf.Abs(transform.position.y - player.transform.position.y);
 
-        if( (transform.position.x > player.transform.position.x && transform.position.y < player.transform.position.y) ||
-            (transform.position.x < player.transform.position.x && transform.position.y > player.transform.position.y) ) {
-            
+        if(transform.position.x > player.transform.position.x && transform.position.y < player.transform.position.y) {
             rotation = Quaternion.Euler(0, 0, Mathf.Atan2(x, y) * Mathf.Rad2Deg);
-        } else {
+        
+        } else if(transform.position.x < player.transform.position.x && transform.position.y > player.transform.position.y) {
+            rotation = Quaternion.Euler(0, 0, Mathf.Atan2(x, y) * Mathf.Rad2Deg - 180);
+
+        } else if(transform.position.x > player.transform.position.x && transform.position.y > player.transform.position.y)
+            rotation = Quaternion.Euler(0, 0, -Mathf.Atan2(x, y) * Mathf.Rad2Deg + 180);
+    
+        else {
             rotation = Quaternion.Euler(0, 0, -Mathf.Atan2(x, y) * Mathf.Rad2Deg);
         }
 
