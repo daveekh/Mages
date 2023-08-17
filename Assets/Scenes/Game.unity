@@ -18593,7 +18593,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1717456356}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99994034
+  m_Size: 0.9999466
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19896,11 +19896,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1017058914}
     - target: {fileID: 7645501537382551146, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645501537382551146, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645501537382551146, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1128414197, guid: 0fcfe11fbbe8f0c46baca8739e142948, type: 3}
+      objectReference: {fileID: -1290149293, guid: 0fcfe11fbbe8f0c46baca8739e142948, type: 3}
     - target: {fileID: 7645501537382551146, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7645501537382551146, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

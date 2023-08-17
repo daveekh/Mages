@@ -5,20 +5,26 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     // https://www.youtube.com/watch?v=AiZ4z4qKy44
 
+    [SerializeField] private Animator animator;
+
     public void MoveUp() {
         StartCoroutine(Move(Vector3.up));
+        animator.SetTrigger("Up");
     }
 
     public void MoveDown() {
         StartCoroutine(Move(Vector3.down));
+        animator.SetTrigger("Down");
     }   
 
     public void MoveLeft() {
         StartCoroutine(Move(Vector3.left));
+        animator.SetTrigger("Left");
     }
 
     public void MoveRight() {
         StartCoroutine(Move(Vector3.right));
+        animator.SetTrigger("Right");
     }
 
     private IEnumerator Move(Vector3 dir) {
