@@ -24,7 +24,7 @@ public class PlayerSpells : MonoBehaviour {
     [SerializeField] private int lightningBoltDmgMax = 35;
     [SerializeField] private int lightningBoltRange = 6;
     [SerializeField] private int lightningBoltManaCost = 50;
-    // animacja lightning bolta
+    [SerializeField] private GameObject lightning;
     [Header("Magic Staff Hit")]
     [SerializeField] private int magicStaffHitDmgMin = 5;
     [SerializeField] private int magicStaffHitDmgMax = 10;
@@ -33,6 +33,7 @@ public class PlayerSpells : MonoBehaviour {
     // animacja magic staffa
     
     private GameObject missile;
+    private GameObject lightningAnim;
     private float x, y;
     private Quaternion rotation;
 
@@ -64,11 +65,16 @@ public class PlayerSpells : MonoBehaviour {
         x = Mathf.Abs(enemy.transform.position.x - transform.position.x);
         y = Mathf.Abs(enemy.transform.position.y - transform.position.y);
 
-        if( (transform.position.x > enemy.transform.position.x && transform.position.y < enemy.transform.position.y) ||
-            (transform.position.x < enemy.transform.position.x && transform.position.y > enemy.transform.position.y) ) {
-            
+        if(transform.position.x > enemy.transform.position.x && transform.position.y < enemy.transform.position.y) {
             rotation = Quaternion.Euler(0, 0, Mathf.Atan2(x, y) * Mathf.Rad2Deg);
-        } else {
+        
+        } else if(transform.position.x < enemy.transform.position.x && transform.position.y > enemy.transform.position.y) {
+            rotation = Quaternion.Euler(0, 0, Mathf.Atan2(x, y) * Mathf.Rad2Deg - 180);
+
+        } else if(transform.position.x > enemy.transform.position.x && transform.position.y > enemy.transform.position.y)
+            rotation = Quaternion.Euler(0, 0, -Mathf.Atan2(x, y) * Mathf.Rad2Deg + 180);
+    
+        else {
             rotation = Quaternion.Euler(0, 0, -Mathf.Atan2(x, y) * Mathf.Rad2Deg);
         }
 
@@ -77,7 +83,8 @@ public class PlayerSpells : MonoBehaviour {
     }
 
     public void LightningBolt() {
-        // animacja wybuchu
+        StartCoroutine(Lightning(lightning,
+            new Vector3(enemy.transform.position.x, enemy.transform.position.y+1, enemy.transform.position.z)));
     }
 
     public void MagicStaffHit() {
@@ -100,6 +107,14 @@ public class PlayerSpells : MonoBehaviour {
 
         missile.transform.position = targetPos;
         Destroy(missile);
+    }
+
+    private IEnumerator Lightning(GameObject spell, Vector3 targetPos) {
+
+        lightningAnim = Instantiate(spell, targetPos, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        Destroy(lightningAnim);
+
     }
 
     public int GetFireballDmgMin() { return fireballDmgMin; }

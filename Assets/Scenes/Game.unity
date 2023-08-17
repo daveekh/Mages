@@ -18561,7 +18561,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1717456356}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99867326
+  m_Size: 0.9999953
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19719,6 +19719,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1716025445}
+    - target: {fileID: 2380265949991014445, guid: a0999b27b73360a4ca03cadaca8588f5, type: 3}
+      propertyPath: lightning
+      value: 
+      objectReference: {fileID: 2037442273044319268, guid: fceb7af46cb3bb9469160deddcd4c745, type: 3}
     - target: {fileID: 4432519662394183101, guid: a0999b27b73360a4ca03cadaca8588f5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -19808,6 +19812,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 509209510}
+    - target: {fileID: 2182170084328355854, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
+      propertyPath: lightning
+      value: 
+      objectReference: {fileID: 2037442273044319268, guid: fceb7af46cb3bb9469160deddcd4c745, type: 3}
     - target: {fileID: 2213683408800875636, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
       propertyPath: m_Name
       value: Enemy
