@@ -1489,6 +1489,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138877404}
   m_CullTransparentMesh: 1
+--- !u!95 &236743710 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3513221519498746142, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
+  m_PrefabInstance: {fileID: 7792352192143483739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &240789022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &256367342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1779,6 +1784,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256367341}
   m_CullTransparentMesh: 1
+--- !u!95 &268924444 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5190171793671820499, guid: a0999b27b73360a4ca03cadaca8588f5, type: 3}
+  m_PrefabInstance: {fileID: 2450135610083787660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &369880097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,6 +4098,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 1986870174}
   enemyStats: {fileID: 978127516}
+  playerAnimator: {fileID: 268924444}
+  enemyAnimator: {fileID: 236743710}
   uiManager: {fileID: 1017058914}
 --- !u!1 &710513275
 GameObject:
@@ -145092,7 +145104,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1717456356}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999794
+  m_Size: 0.99867326
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

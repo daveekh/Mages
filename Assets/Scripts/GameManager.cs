@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Animator enemyAnimator;
     [SerializeField] private UIManager uiManager;
 
     [HideInInspector]
@@ -92,11 +94,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public IEnumerator PlayerDefeat() {
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1f);
 
-        // player death anim
+        playerAnimator.SetTrigger("Death");
 
-        // yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2.5f);
 
         uiManager.LoadStats();
         uiManager.GetEndPanel().SetActive(true);
@@ -104,11 +106,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public IEnumerator EnemyDefeat() {
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1f);
 
-        // enemy death anim
+        enemyAnimator.SetTrigger("Death");
 
-        // yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2.5f);
 
         uiManager.LoadStats();
         uiManager.GetEndPanel().SetActive(true);
