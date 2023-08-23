@@ -15,9 +15,7 @@ public class PlayerStats : MonoBehaviour {
     public void SetHP(int hp) { this.hp = hp; }
     public void SetMana(int mana) { this.mana = mana; }
     public int GetHP() { return hp; }
-    public int GetMaxHP() { return maxHp; }
     public int GetMana() { return mana; }
-    public int GetMaxMana() { return maxMana; } 
     public void RegenStats() {
         hp += regenHp;
         mana += regenMana;

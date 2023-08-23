@@ -11,14 +11,12 @@ public class PlayerSpells : MonoBehaviour {
     [SerializeField] private int fireballRange = 5;
     [SerializeField] private int fireballManaCost = 60;
     [SerializeField] private GameObject fireballMissile;
-    //animacja fireballa
     [Header("Frostbolt")]
     [SerializeField] private int frostboltDmgMin = 15;
     [SerializeField] private int frostboltDmgMax = 20;
     [SerializeField] private int frostboltRange = 3;
     [SerializeField] private int frostboltManaCost = 40;
     [SerializeField] private GameObject frostboltMissile;
-    // animacja frostbolta
     [Header("Lightning Bolt")]
     [SerializeField] private int lightningBoltDmgMin = 10;
     [SerializeField] private int lightningBoltDmgMax = 35;
@@ -58,7 +56,6 @@ public class PlayerSpells : MonoBehaviour {
         }
 
         StartCoroutine(Move(fireballMissile, rotation, enemy.transform.position));
-        // animacja wybuchu
     }
 
     public void Frostbolt() {
@@ -80,7 +77,6 @@ public class PlayerSpells : MonoBehaviour {
         }
 
         StartCoroutine(Move(frostboltMissile, rotation, enemy.transform.position));
-        // animacja wybuchu
     }
 
     public void LightningBolt() {

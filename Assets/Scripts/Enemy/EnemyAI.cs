@@ -19,15 +19,14 @@ public class EnemyAI : MonoBehaviour {
 
     [HideInInspector]
     public enum STATE {
-        PATROL, ACTION, RUN
+        PATROL, ACTION
     }
 
     private STATE state;
 
     public string ConvertStateToText(STATE state) {
         if (state == STATE.PATROL) return "Patrol";
-        else if (state == STATE.ACTION) return "Action";
-        else return "Run";
+        else return "Action";
     }
 
     public void MoveTowardsPlayer() {
@@ -142,18 +141,7 @@ public class EnemyAI : MonoBehaviour {
                 Mathf.Abs(transform.position.y - player.transform.position.y) <= 6) {
 
                     state = STATE.ACTION;
-
             }
-
-        }
-
-        else if (state == STATE.ACTION) {
-
-
-        }
-
-        else {
-
         }
     }
 
@@ -209,19 +197,16 @@ public class EnemyAI : MonoBehaviour {
                         enemyStats.GetMana() >= enemySpells.GetLightningBoltManaCost()
                     ) {
                         enemySpells.LightningBolt();
-                        //wait 2s
                         randomDmg = Random.Range(enemySpells.GetLightningBoltDmgMin(), enemySpells.GetLightningBoltDmgMax()+1);
                         gameManager.DealDamageTo(randomDmg, "PLAYER");
                         gameManager.SubtractMana(enemySpells.GetLightningBoltManaCost(), "ENEMY");
                         gameManager.AddLogToConsole("Przeciwnik zaatakował błyskawicą zadając " + randomDmg + " obrażeń");
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy Lightning Bolt! Dmg: " + randomDmg);
                         timer = 0;
                     
                     } else {
                         MoveTowardsPlayer();
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy moved towards player");
                         timer = 0;
                     }
 
@@ -235,19 +220,16 @@ public class EnemyAI : MonoBehaviour {
                         enemyStats.GetMana() >= enemySpells.GetFireballManaCost()
                     ) {
                         enemySpells.Fireball();
-                        //wait 2s
                         randomDmg = Random.Range(enemySpells.GetFireballDmgMin(), enemySpells.GetFireballDmgMax()+1);
                         gameManager.DealDamageTo(randomDmg, "PLAYER");
                         gameManager.SubtractMana(enemySpells.GetFireballManaCost(), "ENEMY");
                         gameManager.AddLogToConsole("Przeciwnik zaatakował kulą ognia zadając " + randomDmg + " obrażeń");
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy Fireball! Dmg: " + randomDmg);
                         timer = 0;
                     
                     } else {
                         MoveTowardsPlayer();
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy moved towards player");
                         timer = 0;
                     }
 
@@ -261,19 +243,16 @@ public class EnemyAI : MonoBehaviour {
                         enemyStats.GetMana() >= enemySpells.GetFrostboltManaCost()
                     ) {
                         enemySpells.Frostbolt();
-                        //wait 2s
                         randomDmg = Random.Range(enemySpells.GetFrostboltDmgMin(), enemySpells.GetFrostboltDmgMax()+1);
                         gameManager.DealDamageTo(randomDmg, "PLAYER");
                         gameManager.SubtractMana(enemySpells.GetFrostboltManaCost(), "ENEMY");
                         gameManager.AddLogToConsole("Przeciwnik zaatakował pociskiem mrozu zadając " + randomDmg + " obrażeń");
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy Frostbolt! Dmg: " + randomDmg);
                         timer = 0;
                     
                     } else {
                         MoveTowardsPlayer();
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy moved towards player");
                         timer = 0;
                     }
 
@@ -286,19 +265,16 @@ public class EnemyAI : MonoBehaviour {
                         Mathf.Abs(transform.position.y - player.transform.position.y) <= enemySpells.GetMagicStaffHitRange()
                     ) {
                         enemySpells.MagicStaffHit();
-                        //wait 2s
                         randomDmg = Random.Range(enemySpells.GetMagicStaffHitDmgMin(), enemySpells.GetMagicStaffHitDmgMax()+1);
                         gameManager.DealDamageTo(randomDmg, "PLAYER");
                         gameManager.SubtractMana(enemySpells.GetMagicStaffHitManaCost(), "ENEMY");
                         gameManager.AddLogToConsole("Przeciwnik zaatakował magicznym kijem zadając " + randomDmg + " obrażeń");
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy Magic Staff Hit! Dmg: " + randomDmg);
                         timer = 0;
                     
                     } else {
                         MoveTowardsPlayer();
                         gameManager.SetTurnTo("PLAYER");
-                        //Debug.Log("Enemy moved towards player");
                         timer = 0;
                     }
 
@@ -306,11 +282,6 @@ public class EnemyAI : MonoBehaviour {
                 }
             }
         }
-    }
-
-    private void RunningState() {
-
-        // running
     }
 
     void Start() {
@@ -328,13 +299,7 @@ public class EnemyAI : MonoBehaviour {
                 PatrollingState();
             }
 
-            else if (state == STATE.ACTION) {
-                ActionState();
-            }
-
-            else  {
-                RunningState();
-            }
+            else { ActionState(); }
         }
     }
 

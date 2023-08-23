@@ -117,8 +117,6 @@ public class GameManager : MonoBehaviour {
         uiManager.GetVictoryText().SetActive(true);
     }
 
-
-
     void Start() {
         turn = TURN.START;
     }
