@@ -90,10 +90,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
-        turn = TURN.PLAYER;
+        turn = TURN.START;
     }
 
-    //public void SetTurn(TURN turn) { this.turn = turn; }
     public TURN GetTurn() { return turn; }
 
 }

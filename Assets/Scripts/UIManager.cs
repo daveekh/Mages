@@ -8,6 +8,7 @@ using System;
 public class UIManager : MonoBehaviour {
 
     // references
+    [Header("References")]
     [SerializeField] private GameManager gameManager;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private PlayerAction playerAction;
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour {
 
 
     // right panel
+    [Header("Right Panel")]
     [SerializeField] private TextMeshProUGUI turnValue;
     [SerializeField] private TextMeshProUGUI playerHPValue;
     [SerializeField] private Slider playerHPSlider;
@@ -34,10 +36,19 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private Slider enemyManaSlider;
     [SerializeField] private TextMeshProUGUI enemyStateValue;
     [SerializeField] private TextMeshProUGUI consoleArrayValue;
-    public List<string> consoleArray;
-    public string consoleLog;
+    [HideInInspector] public List<string> consoleArray;
+    [HideInInspector] public string consoleLog;
 
 
+    // start/end screens
+    [Header("Start/End Screens")]
+    [SerializeField] private GameObject howToPanel;
+    [SerializeField] private GameObject startPanel;
+
+
+    //----------------------------------------------------------------------------------------------
+
+    // right panel
     public void SetValueToSlider(int value, string agent) {
 
         switch(agent) {
@@ -57,27 +68,6 @@ public class UIManager : MonoBehaviour {
             consoleLog += x;
             consoleLog += "\n";
         }
-    }
-
-
-    public void StartButton () {
-        gameManager.SetTurnTo("PLAYER");
-    }
-
-    public void ChangeTurnButton() {
-        if (gameManager.GetTurn() == GameManager.TURN.PLAYER) {
-            gameManager.SetTurnTo("ENEMY");
-        }
-
-        else if (gameManager.GetTurn() == GameManager.TURN.ENEMY) {
-            gameManager.SetTurnTo("PLAYER");
-        }
-
-    }
-
-    public void EndButton() {
-        gameManager.SetTurnTo("END");
-
     }
 
 
@@ -132,6 +122,26 @@ public class UIManager : MonoBehaviour {
                 magicStaffHitButton.interactable = false;
             }
     }
+
+
+    // start/end screens
+    public void StartButton () {
+        startPanel.SetActive(false);
+        gameManager.SetTurnTo("PLAYER");
+    }
+
+    public void HowToButton() {
+        howToPanel.SetActive(true);
+    }
+
+    public void ExitHowToButton() {
+        howToPanel.SetActive(false);
+    }
+
+    public void ExitButton() {
+        Application.Quit();
+    }
+
 
 
 
