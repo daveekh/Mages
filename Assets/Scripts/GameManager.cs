@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
     [HideInInspector]
     public enum TURN { 
-        START, PLAYER, ENEMY, END, VICTORY, DEFEAT
+        START, PLAYER, ENEMY, END
     }
 
     private TURN turn;
@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour {
 
                 if(playerStats.GetHP() <= 0) {
                     playerStats.SetHP(0);
-                    this.turn = TURN.END; 
+                    this.turn = TURN.END;
+                    StartCoroutine(PlayerDefeat());
                 }
                 else {
                     this.turn = TURN.PLAYER; 
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour {
                 if(enemyStats.GetHP() <= 0) {
                     enemyStats.SetHP(0);
                     this.turn = TURN.END;
+                    StartCoroutine(EnemyDefeat());
                 }
                 else {
                     this.turn = TURN.ENEMY; 
@@ -88,6 +90,32 @@ public class GameManager : MonoBehaviour {
             if(enemyStats.GetMana() < 0) enemyStats.SetMana(0);
         }
     }
+
+    public IEnumerator PlayerDefeat() {
+        yield return new WaitForSeconds(1.1f);
+
+        // player death anim
+
+        // yield return new WaitForSeconds(3);
+
+        uiManager.LoadStats();
+        uiManager.GetEndPanel().SetActive(true);
+        uiManager.GetDefeatText().SetActive(true);
+    }
+
+    public IEnumerator EnemyDefeat() {
+        yield return new WaitForSeconds(1.1f);
+
+        // enemy death anim
+
+        // yield return new WaitForSeconds(3);
+
+        uiManager.LoadStats();
+        uiManager.GetEndPanel().SetActive(true);
+        uiManager.GetVictoryText().SetActive(true);
+    }
+
+
 
     void Start() {
         turn = TURN.START;

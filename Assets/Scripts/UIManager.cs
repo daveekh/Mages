@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -44,6 +45,13 @@ public class UIManager : MonoBehaviour {
     [Header("Start/End Screens")]
     [SerializeField] private GameObject howToPanel;
     [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject endPanel;
+    [SerializeField] private TextMeshProUGUI endScreenPlayerHPValue;
+    [SerializeField] private TextMeshProUGUI endScreenPlayerManaValue;
+    [SerializeField] private TextMeshProUGUI endScreenEnemyHPValue;
+    [SerializeField] private TextMeshProUGUI endScreenEnemyManaValue;
+    [SerializeField] private GameObject victoryText;
+    [SerializeField] private GameObject defeatText;
 
 
     //----------------------------------------------------------------------------------------------
@@ -142,8 +150,28 @@ public class UIManager : MonoBehaviour {
         Application.Quit();
     }
 
+    public void PlayAgainButton() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
+    public void LoadStats() {
+        endScreenPlayerHPValue.text = playerStats.GetHP().ToString();
+        endScreenPlayerManaValue.text = playerStats.GetMana().ToString();
+        endScreenEnemyHPValue.text = enemyStats.GetHP().ToString();
+        endScreenEnemyManaValue.text = enemyStats.GetMana().ToString();
+    }
 
+    public GameObject GetEndPanel() {
+        return endPanel;
+    }
+
+    public GameObject GetVictoryText() {
+        return victoryText;
+    }
+
+    public GameObject GetDefeatText() {
+        return defeatText;
+    }
 
     // update
     void Update() {
