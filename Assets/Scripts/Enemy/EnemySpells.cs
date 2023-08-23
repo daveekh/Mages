@@ -30,10 +30,11 @@ public class EnemySpells : MonoBehaviour {
     [SerializeField] private int magicStaffHitDmgMax = 10;
     [SerializeField] private int magicStaffHitRange = 1;
     [SerializeField] private int magicStaffHitManaCost = 0;
-    // animacja magic staffa
+    [SerializeField] private GameObject magicStaffHit;
 
     private GameObject missile;
     private GameObject lightningAnim;
+    private GameObject magicStaffHitAnim;
     private float x, y;
     private Quaternion rotation;
 
@@ -88,7 +89,8 @@ public class EnemySpells : MonoBehaviour {
     }
 
     public void MagicStaffHit() {
-        // animacja uderzenia
+        StartCoroutine(MagicStaffHitAnim(magicStaffHit,
+            new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z)));
     }
 
     private IEnumerator Move(GameObject spell, Quaternion rotation, Vector3 targetPos) {
@@ -114,6 +116,14 @@ public class EnemySpells : MonoBehaviour {
         lightningAnim = Instantiate(spell, targetPos, Quaternion.identity);
         yield return new WaitForSeconds(1f);
         Destroy(lightningAnim);
+
+    }
+
+    private IEnumerator MagicStaffHitAnim(GameObject spell, Vector3 targetPos) {
+
+        magicStaffHitAnim = Instantiate(spell, targetPos, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        Destroy(magicStaffHitAnim);
 
     }
 

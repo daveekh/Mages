@@ -120,6 +120,7 @@ MonoBehaviour:
   magicStaffHitDmgMax: 10
   magicStaffHitRange: 1
   magicStaffHitManaCost: 0
+  magicStaffHit: {fileID: 8134807506106084065, guid: fbeed8abfbbc1414180d4ce0086c709c, type: 3}
 --- !u!50 &3524291869327257655
 Rigidbody2D:
   serializedVersion: 4

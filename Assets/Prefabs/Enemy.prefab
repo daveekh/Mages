@@ -102,6 +102,7 @@ MonoBehaviour:
   magicStaffHitDmgMax: 10
   magicStaffHitRange: 1
   magicStaffHitManaCost: 0
+  magicStaffHit: {fileID: 8134807506106084065, guid: fbeed8abfbbc1414180d4ce0086c709c, type: 3}
 --- !u!114 &2163004485035727105
 MonoBehaviour:
   m_ObjectHideFlags: 0
