@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemy;
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private Animator playerAnimator;
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void SetTurnTo(string turn) {
+
+        FixPosition();
 
         switch(turn) {
             case "START": { this.turn = TURN.START; break; }
@@ -115,6 +119,16 @@ public class GameManager : MonoBehaviour {
         uiManager.LoadStats();
         uiManager.GetEndPanel().SetActive(true);
         uiManager.GetVictoryText().SetActive(true);
+    }
+
+    private void FixPosition() {
+        player.transform.position = new Vector3(Mathf.RoundToInt(player.transform.position.x), 
+                                                Mathf.RoundToInt(player.transform.position.y),
+                                                Mathf.RoundToInt(player.transform.position.z));
+
+        enemy.transform.position = new Vector3(Mathf.RoundToInt(enemy.transform.position.x), 
+                                               Mathf.RoundToInt(enemy.transform.position.y),
+                                               Mathf.RoundToInt(enemy.transform.position.z));
     }
 
     void Start() {
