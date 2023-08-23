@@ -145332,6 +145332,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1716025445}
+    - target: {fileID: 2380265949991014445, guid: a0999b27b73360a4ca03cadaca8588f5, type: 3}
+      propertyPath: magicStaffHitRange
+      value: 1.99
+      objectReference: {fileID: 0}
     - target: {fileID: 4432519662394183101, guid: a0999b27b73360a4ca03cadaca8588f5, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -145413,6 +145417,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 509209510}
+    - target: {fileID: 2182170084328355854, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
+      propertyPath: magicStaffHitRange
+      value: 1.99
+      objectReference: {fileID: 0}
     - target: {fileID: 2213683408800875636, guid: a0ec285dc5355014db94e48fc210ca76, type: 3}
       propertyPath: m_Name
       value: Enemy

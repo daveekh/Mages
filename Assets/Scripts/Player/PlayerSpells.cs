@@ -28,7 +28,7 @@ public class PlayerSpells : MonoBehaviour {
     [Header("Magic Staff Hit")]
     [SerializeField] private int magicStaffHitDmgMin = 5;
     [SerializeField] private int magicStaffHitDmgMax = 10;
-    [SerializeField] private int magicStaffHitRange = 1;
+    [SerializeField] private float magicStaffHitRange = 1.99f;
     [SerializeField] private int magicStaffHitManaCost = 0;
     [SerializeField] private GameObject magicStaffHit;
     
@@ -144,7 +144,7 @@ public class PlayerSpells : MonoBehaviour {
 
     public int GetMagicStaffHitDmgMin() { return magicStaffHitDmgMin; }
     public int GetMagicStaffHitDmgMax() { return magicStaffHitDmgMax; }
-    public int GetMagicStaffHitRange() { return magicStaffHitRange; }
+    public float GetMagicStaffHitRange() { return magicStaffHitRange; }
     public int GetMagicStaffHitManaCost() { return magicStaffHitManaCost; }
 
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2182170084328355854}
   - component: {fileID: 2163004485035727105}
   - component: {fileID: 5474421736984765782}
-  - component: {fileID: 8611345985471269263}
+  - component: {fileID: 2812885201887625087}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -100,7 +100,7 @@ MonoBehaviour:
   lightning: {fileID: 2037442273044319268, guid: fceb7af46cb3bb9469160deddcd4c745, type: 3}
   magicStaffHitDmgMin: 5
   magicStaffHitDmgMax: 10
-  magicStaffHitRange: 1
+  magicStaffHitRange: 1.99
   magicStaffHitManaCost: 0
   magicStaffHit: {fileID: 8134807506106084065, guid: fbeed8abfbbc1414180d4ce0086c709c, type: 3}
 --- !u!114 &2163004485035727105
@@ -539,8 +539,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!70 &8611345985471269263
-CapsuleCollider2D:
+--- !u!61 &2812885201887625087
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -572,8 +572,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_EdgeRadius: 0
 --- !u!1 &6341101540654101528
 GameObject:
   m_ObjectHideFlags: 0
