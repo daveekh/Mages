@@ -18,4 +18,4 @@ The game itself has a gameplay screen, bottom UI that has four possible spells t
 
 ## How to play?
 
-In the Releases folder there are .zip archives for Linux and Windows version. Simply download it and open the .exe file. No installation required. 
+In the Releases folder there are .zip archives for Linux and Windows version. Simply download it and open the .exe or .x86_64 file. No installation required. 
